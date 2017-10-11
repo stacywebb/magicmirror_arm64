@@ -122,7 +122,7 @@ else
 	echo -e "\e[91mUnable to clone MagicMirror."
 	exit;
 fi
-
+mv magicmirror_arm64/ MagicMirror/ || exit
 cd ~/MagicMirror  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then
