@@ -42,7 +42,7 @@ NODE_TESTED="v5.1.0"
 ARM=$(uname -m)
 
 # Check the if device is arm64.
-if [ "$ARM" != "arm64" ]; then
+if [ "$ARM" != "aarch64" ]; then
 	echo -e "\e[91mSorry, the current device is not supported."
 	echo -e "\e[91mThis installer is only for platforms that use the arm64 architecture."
 	exit;
