@@ -23,8 +23,8 @@ var config = {
 
     modules: [
         //{
-        //	module: "updatenotification",
-        //	position: "top_bar"
+        //  module: "updatenotification",
+        //  position: "top_bar"
         //},
         {
             module: "clock",
