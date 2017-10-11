@@ -1,0 +1,31 @@
+{
+  "name": "vendor",
+  "version": "1.0.0",
+  "description": "3rd party components",
+  "main": "js/electron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacywebb/magicmirror_arm64.git"
+  },
+  "keywords": [
+    "arm64",
+    "magic",
+    "mirror",
+    "vendoes"
+  ],
+  "author": "Stacy E. Webb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stacywebb/magicmirror_arm64/issues"
+  },
+  "homepage": "https://github.com/stacywebb/magicmirror_arm64#readme",
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "moment": "^2.19.0",
+    "moment-timezone": "^0.5.13",
+    "weathericons": "^2.1.0"
+  }
+}
