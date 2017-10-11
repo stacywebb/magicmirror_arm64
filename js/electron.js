@@ -18,86 +18,86 @@ let mainWindow;
 
 function createWindow() {
 
-	var electronOptionsDefaults = {
-		width: 800,
-		height: 600,
-		x: 0,
-		y: 0,
-		darkTheme: true,
-		webPreferences: {
-			nodeIntegration: false,
-			zoomFactor: config.zoom
-		},
-		backgroundColor: "#000000"
-	};
+  var electronOptionsDefaults = {
+    width: 800,
+    height: 600,
+    x: 0,
+    y: 0,
+    darkTheme: true,
+    webPreferences: {
+      nodeIntegration: false,
+      zoomFactor: config.zoom
+    },
+    backgroundColor: "#000000"
+  };
 
-	// DEPRECATED: "kioskmode" backwards compatibility, to be removed
-	// settings these options directly instead provides cleaner interface
-	if (config.kioskmode) {
-		electronOptionsDefaults.kiosk = true;
-	} else {
-		electronOptionsDefaults.fullscreen = true;
-		electronOptionsDefaults.autoHideMenuBar = true;
-	}
+  // DEPRECATED: "kioskmode" backwards compatibility, to be removed
+  // settings these options directly instead provides cleaner interface
+  if (config.kioskmode) {
+    electronOptionsDefaults.kiosk = true;
+  } else {
+    electronOptionsDefaults.fullscreen = true;
+    electronOptionsDefaults.autoHideMenuBar = true;
+  }
 
-	var electronOptions = Object.assign({}, electronOptionsDefaults, config.electronOptions);
+  var electronOptions = Object.assign({}, electronOptionsDefaults, config.electronOptions);
 
-	// Create the browser window.
-	mainWindow = new BrowserWindow(electronOptions);
+  // Create the browser window.
+  mainWindow = new BrowserWindow(electronOptions);
 
-	// and load the index.html of the app.
-	//mainWindow.loadURL('file://' + __dirname + '../../index.html');
-	mainWindow.loadURL("http://localhost:" + config.port);
+  // and load the index.html of the app.
+  //mainWindow.loadURL('file://' + __dirname + '../../index.html');
+  mainWindow.loadURL("http://localhost:" + config.port);
 
-	// Open the DevTools if run with "npm start dev"
-	if (process.argv.includes("dev")) {
-		mainWindow.webContents.openDevTools();
-	}
+  // Open the DevTools if run with "npm start dev"
+  if (process.argv.includes("dev")) {
+    mainWindow.webContents.openDevTools();
+  }
 
-	// Set responders for window events.
-	mainWindow.on("closed", function() {
-		mainWindow = null;
-	});
+  // Set responders for window events.
+  mainWindow.on("closed", function() {
+    mainWindow = null;
+  });
 
-	if (config.kioskmode) {
-		mainWindow.on("blur", function() {
-			mainWindow.focus();
-		});
+  if (config.kioskmode) {
+    mainWindow.on("blur", function() {
+      mainWindow.focus();
+    });
 
-		mainWindow.on("leave-full-screen", function() {
-			mainWindow.setFullScreen(true);
-		});
+    mainWindow.on("leave-full-screen", function() {
+      mainWindow.setFullScreen(true);
+    });
 
-		mainWindow.on("resize", function() {
-			setTimeout(function() {
-				mainWindow.reload();
-			}, 1000);
-		});
-	}
+    mainWindow.on("resize", function() {
+      setTimeout(function() {
+        mainWindow.reload();
+      }, 1000);
+    });
+  }
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on("ready", function() {
-	console.log("Launching application.");
-	createWindow();
+  console.log("Launching application.");
+  createWindow();
 });
 
 // Quit when all windows are closed.
 app.on("window-all-closed", function() {
-	createWindow();
+  createWindow();
 });
 
 app.on("activate", function() {
-	// On OS X it's common to re-create a window in the app when the
-	// dock icon is clicked and there are no other windows open.
-	if (mainWindow === null) {
-		createWindow();
-	}
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow();
+  }
 });
 
 // Start the core application.
 // This starts all node helpers and starts the webserver.
 core.start(function(c) {
-	config = c;
+  config = c;
 });

@@ -7,7 +7,7 @@
  */
 
 var deprecated = {
-	configs: ["kioskmode"],
+  configs: ["kioskmode"],
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
