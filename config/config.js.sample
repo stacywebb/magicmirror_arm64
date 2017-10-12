@@ -8,19 +8,16 @@
  * MIT Licensed.
  *
  */
-
 var config = {
   port: 8080,
   ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], // Set [] to allow all IP addresses
-                                                         // or add a specific IPv4 of 192.168.1.5 :
-                                                         // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-                                                         // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-                                                         // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
-
+  // or add a specific IPv4 of 192.168.1.5 :
+  // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+  // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+  // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
   language: "en",
   timeFormat: 24,
   units: "metric",
-
   modules: [
     {
       module: "alert",
@@ -55,7 +52,7 @@ var config = {
       position: "top_right",
       config: {
         location: "New York",
-        locationID: "",  //ID from http://www.openweathermap.org/help/city_list.txt
+        locationID: "", //ID from http://www.openweathermap.org/help/city_list.txt
         appid: "YOUR_OPENWEATHER_API_KEY"
       }
     },
@@ -65,7 +62,7 @@ var config = {
       header: "Weather Forecast",
       config: {
         location: "New York",
-        locationID: "5128581",  //ID from http://www.openweathermap.org/help/city_list.txt
+        locationID: "5128581", //ID from http://www.openweathermap.org/help/city_list.txt
         appid: "YOUR_OPENWEATHER_API_KEY"
       }
     },
@@ -84,8 +81,8 @@ var config = {
       }
     },
   ]
-
 };
-
 /*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = config;}
+if (typeof module !== "undefined") {
+  module.exports = config;
+}

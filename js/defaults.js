@@ -1,5 +1,4 @@
 /* exported defaults */
-
 /* Magic Mirror 2 arm64 Version
  * Config Defauls
  *
@@ -9,9 +8,9 @@
  * Revised by Stacy E.Webb https://stacywebb.com
  * MIT Licensed.
  */
-
 var port = 8080;
-if (typeof(mmPort) !== "undefined") {
+var mmPort;
+if (typeof (mmPort) !== "undefined") {
   port = mmPort;
 }
 var defaults = {
@@ -19,13 +18,11 @@ var defaults = {
   kioskmode: false,
   electronOptions: {},
   ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.0.0/256"],
-
   language: "en",
   timeFormat: 12,
   units: "imperial",
   zoom: 1,
   customCss: "css/custom.css",
-
   modules: [
     {
       module: "updatenotification",
@@ -71,12 +68,12 @@ var defaults = {
       }
     },
   ],
-
   paths: {
     modules: "modules",
     vendor: "vendor"
   },
 };
-
 /*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = defaults;}
+if (typeof module !== "undefined") {
+  module.exports = defaults;
+}

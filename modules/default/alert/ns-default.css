@@ -1,5 +1,4 @@
 /* Based on work by http://tympanus.net/codrops/licensing/ */
-
 .ns-box {
   background: #fff;
   padding: 17px;
@@ -14,7 +13,6 @@
   max-width: 100%;
   border-radius: 5px;
 }
-
 .ns-alert {
   border-style: solid;
   border-color: #fff;
@@ -36,7 +34,6 @@
   word-wrap: break-word;
   border-radius: 20px;
 }
-
 .black_overlay {
   position: fixed;
   z-index: 2;
@@ -44,19 +41,16 @@
   width: 100%;
   height: 100%;
 }
-
 [class^="ns-effect-"].ns-growl.ns-hide,
 [class*=" ns-effect-"].ns-growl.ns-hide {
   -webkit-animation-direction: reverse;
   animation-direction: reverse;
 }
-
 .ns-effect-flip {
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
   backface-visibility: hidden;
 }
-
 .ns-effect-flip.ns-show,
 .ns-effect-flip.ns-hide {
   -webkit-animation-name: animFlipFront;
@@ -64,12 +58,10 @@
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
-
 .ns-effect-flip.ns-hide {
   -webkit-animation-name: animFlipBack;
   animation-name: animFlipBack;
 }
-
 @-webkit-keyframes animFlipFront {
   0% {
     -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
@@ -78,7 +70,6 @@
     -webkit-transform: perspective(1000px);
   }
 }
-
 @keyframes animFlipFront {
   0% {
     -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
@@ -89,7 +80,6 @@
     transform: perspective(1000px);
   }
 }
-
 @-webkit-keyframes animFlipBack {
   0% {
     -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
@@ -98,7 +88,6 @@
     -webkit-transform: perspective(1000px);
   }
 }
-
 @keyframes animFlipBack {
   0% {
     -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
@@ -109,7 +98,6 @@
     transform: perspective(1000px);
   }
 }
-
 .ns-effect-bouncyflip.ns-show,
 .ns-effect-bouncyflip.ns-hide {
   -webkit-animation-name: flipInX;
@@ -117,7 +105,6 @@
   -webkit-animation-duration: 0.8s;
   animation-duration: 0.8s;
 }
-
 @-webkit-keyframes flipInX {
   0% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
@@ -140,7 +127,6 @@
     -webkit-transform: perspective(400px);
   }
 }
-
 @keyframes flipInX {
   0% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
@@ -172,14 +158,12 @@
     transform: perspective(400px);
   }
 }
-
 .ns-effect-bouncyflip.ns-hide {
   -webkit-animation-name: flipInXSimple;
   animation-name: flipInXSimple;
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
-
 @-webkit-keyframes flipInXSimple {
   0% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
@@ -189,7 +173,6 @@
     -webkit-transform: perspective(400px);
   }
 }
-
 @keyframes flipInXSimple {
   0% {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
@@ -202,23 +185,19 @@
     transform: perspective(400px);
   }
 }
-
 .ns-effect-exploader {
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-
 .ns-effect-exploader p {
   padding: 0.25em 2em 0.25em 3em;
 }
-
 .ns-effect-exploader.ns-show {
   -webkit-animation-name: animLoad;
   animation-name: animLoad;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-
 @-webkit-keyframes animLoad {
   0% {
     opacity: 1;
@@ -229,7 +208,6 @@
     -webkit-transform: scale3d(1, 1, 1);
   }
 }
-
 @keyframes animLoad {
   0% {
     opacity: 1;
@@ -242,14 +220,12 @@
     transform: scale3d(1, 1, 1);
   }
 }
-
 .ns-effect-exploader.ns-hide {
   -webkit-animation-name: animFade;
   animation-name: animFade;
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
-
 .ns-effect-exploader.ns-show .ns-box-inner,
 .ns-effect-exploader.ns-show .ns-close {
   -webkit-animation-fill-mode: both;
@@ -259,19 +235,16 @@
   -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-
 .ns-effect-exploader.ns-show .ns-close {
   -webkit-animation-name: animFade;
   animation-name: animFade;
 }
-
 .ns-effect-exploader.ns-show .ns-box-inner {
   -webkit-animation-name: animFadeMove;
   animation-name: animFadeMove;
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
-
 @-webkit-keyframes animFadeMove {
   0% {
     opacity: 0;
@@ -282,7 +255,6 @@
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes animFadeMove {
   0% {
     opacity: 0;
@@ -295,7 +267,6 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
 @-webkit-keyframes animFade {
   0% {
     opacity: 0;
@@ -304,7 +275,6 @@
     opacity: 1;
   }
 }
-
 @keyframes animFade {
   0% {
     opacity: 0;
@@ -313,7 +283,6 @@
     opacity: 1;
   }
 }
-
 .ns-effect-scale.ns-show,
 .ns-effect-scale.ns-hide {
   -webkit-animation-name: animScale;
@@ -321,7 +290,6 @@
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
 }
-
 @-webkit-keyframes animScale {
   0% {
     opacity: 0;
@@ -332,7 +300,6 @@
     -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
-
 @keyframes animScale {
   0% {
     opacity: 0;
@@ -345,7 +312,6 @@
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
-
 .ns-effect-jelly.ns-show {
   -webkit-animation-name: animJelly;
   animation-name: animJelly;
@@ -354,24 +320,20 @@
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-
 .ns-effect-jelly.ns-hide {
   -webkit-animation-name: animFade;
   animation-name: animFade;
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
-
 @-webkit-keyframes animFade {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
-
 @keyframes animFade {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
-
 @-webkit-keyframes animJelly {
   0% {
     -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -570,7 +532,6 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 @keyframes animJelly {
   0% {
     -webkit-transform: matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -769,7 +730,6 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 .ns-effect-slide-left.ns-show {
   -webkit-animation-name: animSlideElasticLeft;
   animation-name: animSlideElasticLeft;
@@ -778,7 +738,6 @@
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-
 @-webkit-keyframes animSlideElasticLeft {
   0% {
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1);
@@ -1025,7 +984,6 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 @keyframes animSlideElasticLeft {
   0% {
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1000, 0, 0, 1);
@@ -1272,14 +1230,12 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 .ns-effect-slide-left.ns-hide {
   -webkit-animation-name: animSlideLeft;
   animation-name: animSlideLeft;
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
 }
-
 @-webkit-keyframes animSlideLeft {
   0% {
     -webkit-transform: translate3d(-30px, 0, 0) translate3d(-100%, 0, 0);
@@ -1288,7 +1244,6 @@
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes animSlideLeft {
   0% {
     -webkit-transform: translate3d(-30px, 0, 0) translate3d(-100%, 0, 0);
@@ -1299,12 +1254,10 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
 .ns-effect-slide-right.ns-show {
   -webkit-animation: animSlideElasticRight 2000ms linear both;
   animation: animSlideElasticRight 2000ms linear both;
 }
-
 @-webkit-keyframes animSlideElasticRight {
   0% {
     -webkit-transform: matrix3d(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1);
@@ -1383,7 +1336,6 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 @keyframes animSlideElasticRight {
   0% {
     -webkit-transform: matrix3d(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1);
@@ -1462,14 +1414,12 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 .ns-effect-slide-right.ns-hide {
   -webkit-animation-name: animSlideRight;
   animation-name: animSlideRight;
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
 }
-
 @-webkit-keyframes animSlideRight {
   0% {
     -webkit-transform: translate3d(30px, 0, 0) translate3d(100%, 0, 0);
@@ -1478,7 +1428,6 @@
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
-
 @keyframes animSlideRight {
   0% {
     -webkit-transform: translate3d(30px, 0, 0) translate3d(100%, 0, 0);
@@ -1489,12 +1438,10 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
 .ns-effect-slide-center.ns-show {
   -webkit-animation: animSlideElasticCenter 2000ms linear both;
   animation: animSlideElasticCenter 2000ms linear both;
 }
-
 @-webkit-keyframes animSlideElasticCenter {
   0% {
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 0, -300, 0, 1);
@@ -1573,7 +1520,6 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 @keyframes animSlideElasticCenter {
   0% {
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 0, -300, 0, 1);
@@ -1652,19 +1598,16 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
-
 .ns-effect-slide-center.ns-hide {
   -webkit-animation-name: animSlideCenter;
   animation-name: animSlideCenter;
   -webkit-animation-duration: 0.25s;
   animation-duration: 0.25s;
 }
-
 @-webkit-keyframes animSlideCenter {
   0% { -webkit-transform: translate3d(0, -30px, 0) translate3d(0, -100%, 0); }
   100% { -webkit-transform: translate3d(0, 0, 0); }
 }
-
 @keyframes animSlideCenter {
   0% {
     -webkit-transform: translate3d(0, -30px, 0) translate3d(0, -100%, 0);
@@ -1675,7 +1618,6 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
 .ns-effect-genie.ns-show,
 .ns-effect-genie.ns-hide {
   -webkit-animation-name: animGenie;
@@ -1683,31 +1625,26 @@
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
 }
-
 @-webkit-keyframes animGenie {
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, calc(200% + 30px), 0) scale3d(0, 1, 1);
     -webkit-animation-timing-function: ease-in;
   }
-
   40% {
     opacity: 0.5;
     -webkit-transform: translate3d(0, 0, 0) scale3d(0.02, 1.1, 1);
     -webkit-animation-timing-function: ease-out;
   }
-
   70% {
     opacity: 0.6;
     -webkit-transform: translate3d(0, -40px, 0) scale3d(0.8, 1.1, 1);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
-
 @keyframes animGenie {
   0% {
     opacity: 0;
@@ -1716,7 +1653,6 @@
     transform: translate3d(0, calc(200% + 30px), 0) scale3d(0, 1, 1);
     animation-timing-function: ease-in;
   }
-
   40% {
     opacity: 0.5;
     -webkit-transform: translate3d(0, 0, 0) scale3d(0.02, 1.1, 1);
@@ -1724,13 +1660,11 @@
     transform: translate3d(0, 0, 0) scale3d(0.02, 1.1, 1);
     animation-timing-function: ease-out;
   }
-
   70% {
     opacity: 0.6;
     -webkit-transform: translate3d(0, -40px, 0) scale3d(0.8, 1.1, 1);
     transform: translate3d(0, -40px, 0) scale3d(0.8, 1.1, 1);
   }
-
   100% {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);

@@ -1,49 +1,50 @@
 {
-    "name": "magicmirror_arm64",
-    "version": "1.0.0",
-    "description": "arm64 build of MagicMirror",
-    "main": "js/electron.js",
-    "scripts": {
-        "start": "sh run-start.sh",
-        "install": "cd vendor && npm install",
-        "postinstall": "sh installers/postinstall/postinstall.sh",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/stacywebb/magicmirror_arm64.git"
-    },
-    "keywords": [
-        "arm64",
-        "magic",
-        "mirror",
-        "allwinner",
-        "aarch64"
-    ],
-    "author": "Stacy E. Webb",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/stacywebb/magicmirror_arm64/issues"
-    },
-    "homepage": "https://github.com/stacywebb/magicmirror_arm64#readme",
-    "devDependencies": {
-        "current-week-number": "^1.0.7",
-        "electron": "^1.8.1",
-        "http-auth": "^3.2.3"
-    },
-    "dependencies": {
-        "body-parser": "^1.18.2",
-        "colors": "^1.1.2",
-        "express": "^4.16.2",
-        "express-ipfilter": "^0.3.1",
-        "feedme": "^1.0.1",
-        "helmet": "^3.8.2",
-        "iconv-lite": "^0.4.19",
-        "moment": "^2.19.0",
-        "rrule-alt": "^2.2.5",
-        "simple-git": "^1.79.0",
-        "socket.io": "^2.0.3",
-        "valid-url": "^1.0.9",
-        "walk": "^2.3.9"
-    }
+  "name": "magicmirror_arm64",
+  "version": "3.0.0",
+  "description": "arm64 build of MagicMirror",
+  "main": "js/electron.js",
+  "scripts": {
+    "start": "sh run-start.sh",
+    "install": "cd vendor && npm install",
+    "postinstall": "sh installers/postinstall/postinstall.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacywebb/magicmirror_arm64.git"
+  },
+  "keywords": [
+    "arm64",
+    "magic",
+    "mirror",
+    "allwinner",
+    "aarch64"
+  ],
+  "author": "Stacy E. Webb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stacywebb/magicmirror_arm64/issues"
+  },
+  "homepage": "https://github.com/stacywebb/magicmirror_arm64#readme",
+  "devDependencies": {
+    "current-week-number": "^1.0.7",
+    "http-auth": "^3.2.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chromedriver": "^2.33.1",
+    "colors": "^1.1.2",
+    "electron": "^1.8.1",
+    "express": "^4.16.2",
+    "express-ipfilter": "^0.3.1",
+    "feedme": "^1.0.1",
+    "helmet": "^3.8.2",
+    "iconv-lite": "^0.4.19",
+    "moment": "^2.19.0",
+    "rrule-alt": "^2.2.5",
+    "simple-git": "^1.79.0",
+    "socket.io": "^2.0.3",
+    "valid-url": "^1.0.9",
+    "walk": "^2.3.9"
+  }
 }

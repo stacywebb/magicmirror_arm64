@@ -1,11 +1,9 @@
 /*****************************************************
- * Magic Mirror 2 arm64 Version                      *
- * Custom CSS                                        *
- *                                                   *
- *****************************************************/
-
+* Magic Mirror 2 arm64 Version                      *
+* Custom CSS                                        *
+*                                                   *
+*****************************************************/
 body {}
-
 .clock .time {
-    color: white;
+  color: white;
 }
