@@ -17,7 +17,7 @@ var defaults = {
   port: port,
   kioskmode: false,
   electronOptions: {},
-  ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.0.0/256"],
+  ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.0.0/56"],
   language: "en",
   timeFormat: 12,
   units: "imperial",
