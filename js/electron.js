@@ -17,7 +17,7 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 function createWindow() {
-	var arch64Options = {
+	var electronOptionsDefaults = {
 		width: 800,
 		height: 600,
 		x: 0,
@@ -45,8 +45,8 @@ function createWindow() {
 	//var electronOptions = Object.assign({}, electronOptionsDefaults, config.electronOptions);
 
 	// Create the browser window.
-	mainWindow = new BrowserWindow(arch64Options);
-	mainWindow.maximize();
+	mainWindow = new BrowserWindow(electronOptionsDefaults);
+	//mainWindow.maximize();
 
 	// and load the index.html of the app.
 	// If config.address is not defined or is an empty string (listening on all interfaces), connect to localhost
@@ -77,7 +77,7 @@ function createWindow() {
 	//			mainWindow.reload();
 	//		}, 1000);
 	//	});
-	}
+	//}
 }
 
 // This method will be called when Electron has finished
@@ -102,8 +102,6 @@ app.on("activate", function() {
 
 // Start the core application if server is run on localhost
 // This starts all node helpers and starts the webserver.
-if (["localhost", "127.0.0.1", "::1", "::ffff:127.0.0.1", undefined].indexOf(config.address) > -1) {
-	core.start(function(c) {
-		config = c;
-	});
-}
+core.start(function(c) {
+	config = c;
+});
