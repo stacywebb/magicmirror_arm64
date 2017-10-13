@@ -23,8 +23,7 @@ function createWindow() {
 		x: 0,
 		y: 0,
 		darkTheme: true,
-		fullscreen: true,
-		autoHideMenuBar: true,
+		darkTheme: true,
 		frame: false,
 		webPreferences: {
 			nodeIntegration: false,
@@ -46,7 +45,7 @@ function createWindow() {
 
 	// Create the browser window.
 	mainWindow = new BrowserWindow(electronOptionsDefaults);
-	//mainWindow.maximize();
+	mainWindow.maximize();
 
 	// and load the index.html of the app.
 	// If config.address is not defined or is an empty string (listening on all interfaces), connect to localhost
