@@ -17,7 +17,7 @@ var defaults = {
   port: port,
   kioskmode: false,
   electronOptions: {},
-  ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.0.0/56"],
+  ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"],
   language: "en",
   timeFormat: 12,
   units: "imperial",
@@ -64,7 +64,7 @@ var defaults = {
       position: "bottom_bar",
       classes: "xsmall dimmed",
       config: {
-        text: "MagicMirror_arm64 version. Stacy E. Webb"
+        text: "MagicMirror_arm64 version."
       }
     },
   ],

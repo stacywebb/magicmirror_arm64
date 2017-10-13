@@ -1,7 +1,7 @@
 {
   "apps": [{
     "name": "MagicMirror2_arm64",
-    "script": "/home/rock64/MagicMirror/installers/mm.sh",
-    "watch": ["/home/rock64/MagicMirror/config/config.js"]
+    "script": "~/MagicMirror/installers/mm.sh",
+    "watch": ["~/MagicMirror/config/config.js"]
   }]
 }

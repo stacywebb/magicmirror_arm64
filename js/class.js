@@ -1,6 +1,9 @@
 /* Simple JavaScript Inheritance
  * By John Resig http://ejohn.org/
  * MIT Licensed.
+ *
+ * Revised by Stacy E.Webb https://stacywebb.com
+ * MIT Licensed.
  */
 // Inspired by base2 and Prototype
 (function () {

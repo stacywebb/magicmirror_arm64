@@ -3,6 +3,9 @@
  *
  * By Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
+ *
+ * Revised by Stacy E.Webb https://stacywebb.com
+ * MIT Licensed.
  */
 
 var fs = require("fs");

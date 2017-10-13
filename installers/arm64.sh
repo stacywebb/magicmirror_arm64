@@ -32,122 +32,137 @@ echo '▓▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄�
 echo '▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓'
 echo ''
 echo -e "\e[0m"
+
 # Define the tested version of Node.js.
 NODE_TESTED="v5.1.0"
+
 # Determine which arch that device is running.
 ARM=$(uname -m)
+
 # Check the if device is arm64.
 if [ "$ARM" != "aarch64" ]; then
-  echo -e "\e[91mSorry, the current device is not supported."
-  echo -e "\e[91mThis installer is only for platforms that use the arm64 architecture."
-exit;
+	echo -e "\e[91mSorry, the current device is not supported."
+	echo -e "\e[91mThis installer is only for platforms that use the arm64 architecture."
+	exit;
 fi
+
 # Define helper methods.
 function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 function command_exists () { type "$1" &> /dev/null ;}
+
 # Update before first apt-get
 echo -e "\e[96mUpdating packages ...\e[90m"
 sudo apt-get update || echo -e "\e[91mUpdate failed, carrying on installation ...\e[90m"
+
 # Installing helper tools
 echo -e "\e[96mInstalling helper tools ...\e[90m"
 sudo apt-get install curl wget git build-essential unzip || exit
+
 # Check if we need to install or upgrade Node.js.
 echo -e "\e[96mCheck current Node installation ...\e[0m"
 NODE_INSTALL=false
 if command_exists node; then
-  echo -e "\e[0mNode currently installed. Checking version number.";
-  NODE_CURRENT=$(node -v)
-  echo -e "\e[0mMinimum Node version: \e[1m$NODE_TESTED\e[0m"
-  echo -e "\e[0mInstalled Node version: \e[1m$NODE_CURRENT\e[0m"
-  if version_gt $NODE_TESTED $NODE_CURRENT; then
-    echo -e "\e[96mNode should be upgraded.\e[0m"
-    NODE_INSTALL=true
-    # Check if a node process is currenlty running.
-    # If so abort installation.
-    if pgrep "node" > /dev/null; then
-      echo -e "\e[91mA Node process is currently running. Can't upgrade."
-      echo "Please quit all Node processes and restart the installer."
-      exit;
-    fi
-  else
-    echo -e "\e[92mNo Node.js upgrade necessary.\e[0m"
-  fi
-else
-  echo -e "\e[93mNode.js is not installed.\e[0m";
-  NODE_INSTALL=true
+	echo -e "\e[0mNode currently installed. Checking version number.";
+	NODE_CURRENT=$(node -v)
+	echo -e "\e[0mMinimum Node version: \e[1m$NODE_TESTED\e[0m"
+	echo -e "\e[0mInstalled Node version: \e[1m$NODE_CURRENT\e[0m"
+	if version_gt $NODE_TESTED $NODE_CURRENT; then
+		echo -e "\e[96mNode should be upgraded.\e[0m"
+		NODE_INSTALL=true
+
+# Check if a node process is currenlty running.
+# If so abort installation.
+if pgrep "node" > /dev/null; then
+	echo -e "\e[91mA Node process is currently running. Can't upgrade."
+	echo "Please quit all Node processes and restart the installer."
+	exit;
 fi
+else
+	echo -e "\e[92mNo Node.js upgrade necessary.\e[0m"
+fi
+	else
+		echo -e "\e[93mNode.js is not installed.\e[0m";
+		NODE_INSTALL=true
+	fi
+
 # Install or upgrade node if necessary.
 if $NODE_INSTALL; then
-  echo -e "\e[96mInstalling Node.js ...\e[90m"
-  # Fetch the latest version of Node.js from the selected branch
-  # The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 8.x)
-  NODE_STABLE_BRANCH="8.x"
-  curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
-  sudo apt-get install -y nodejs
-  echo -e "\e[92mNode.js installation Done!\e[0m"
+	echo -e "\e[96mInstalling Node.js ...\e[90m"
+
+	# Fetch the latest version of Node.js from the selected branch
+
+	# The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 8.x)
+	NODE_STABLE_BRANCH="8.x"
+	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
+	sudo apt-get install -y nodejs
+	echo -e "\e[92mNode.js installation Done!\e[0m"
 fi
+
 # Install MagicMirror
 cd ~
 if [ -d "$HOME/MagicMirror" ] ; then
-  echo -e "\e[93mIt seems like MagicMirror is already installed."
-  echo -e "To prevent overwriting, the installer will be aborted."
-  echo -e "Please rename the \e[1m~/MagicMirror\e[0m\e[93m folder and try again.\e[0m"
-  echo ""
-  echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror directory."
-  echo ""
-  exit;
+	echo -e "\e[93mIt seems like MagicMirror is already installed."
+	echo -e "To prevent overwriting, the installer will be aborted."
+	echo -e "Please rename the \e[1m~/MagicMirror\e[0m\e[93m folder and try again.\e[0m"
+	echo ""
+	echo -e "If you want to upgrade your installation run \e[1m\e[97mgit pull\e[0m from the ~/MagicMirror directory."
+	echo ""
+	exit;
 fi
+
 echo -e "\e[96mCloning MagicMirror 2 arm64 version...\e[90m"
 if git clone https://github.com/stacywebb/magicmirror_arm64.git; then
-  echo -e "\e[92mCloning MagicMirror 2 arm64 Done!\e[0m"
+	echo -e "\e[92mCloning MagicMirror 2 arm64 Done!\e[0m"
 else
-  echo -e "\e[91mUnable to clone MagicMirror."
-  exit;
+	echo -e "\e[91mUnable to clone MagicMirror."
+	exit;
 fi
 mv ~/magicmirror_arm64/ ~/MagicMirror || exit
 cd ~/MagicMirror  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then
-  echo -e "\e[92mDependencies installation Done!\e[0m"
+	echo -e "\e[92mDependencies installation Done!\e[0m"
 else
-  echo -e "\e[91mUnable to install dependencies!"
-  exit;
+	echo -e "\e[91mUnable to install dependencies!"
+	exit;
 fi
+
 # Use sample config for start MagicMirror
-# cp config/config.js.sample config/config.js
+cp config/config.js.sample config/config.js
 # Check if plymouth is installed (default with PIXEL desktop environment), then install custom splashscreen.
 echo -e "\e[96mCheck plymouth installation ...\e[0m"
 if command_exists plymouth; then
-  THEME_DIR="/usr/share/plymouth/themes"
-  echo -e "\e[90mSplashscreen: Checking themes directory.\e[0m"
-  if [ -d $THEME_DIR ]; then
-    echo -e "\e[90mSplashscreen: Create theme directory if not exists.\e[0m"
-    if [ ! -d $THEME_DIR/MagicMirror ]; then
-      sudo mkdir $THEME_DIR/MagicMirror
-    fi
-    if sudo cp ~/MagicMirror/splashscreen/splash.png $THEME_DIR/MagicMirror/splash.png && sudo cp ~/MagicMirror/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror/MagicMirror.plymouth && sudo cp ~/MagicMirror/splashscreen/MagicMirror.script $THEME_DIR/MagicMirror/MagicMirror.script; then
-      echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
-      if sudo plymouth-set-default-theme -R MagicMirror; then
-        echo -e "\e[92mSplashscreen: Changed theme to MagicMirror successfully.\e[0m"
-      else
-        echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror!\e[0m"
-      fi
-    else
-      echo -e "\e[91mSplashscreen: Copying theme failed!\e[0m"
-    fi
-  else
-    echo -e "\e[91mSplashscreen: Themes folder doesn't exist!\e[0m"
-  fi
+	THEME_DIR="/usr/share/plymouth/themes"
+	echo -e "\e[90mSplashscreen: Checking themes directory.\e[0m"
+if [ -d $THEME_DIR ]; then
+	echo -e "\e[90mSplashscreen: Create theme directory if not exists.\e[0m"
+if [ ! -d $THEME_DIR/MagicMirror ]; then
+	sudo mkdir $THEME_DIR/MagicMirror
+fi
+if sudo cp ~/MagicMirror/splashscreen/splash.png $THEME_DIR/MagicMirror/splash.png && sudo cp ~/MagicMirror/splashscreen/MagicMirror.plymouth $THEME_DIR/MagicMirror/MagicMirror.plymouth && sudo cp ~/MagicMirror/splashscreen/MagicMirror.script $THEME_DIR/MagicMirror/MagicMirror.script; then
+	echo -e "\e[90mSplashscreen: Theme copied successfully.\e[0m"
+if sudo plymouth-set-default-theme -R MagicMirror; then
+	echo -e "\e[92mSplashscreen: Changed theme to MagicMirror successfully.\e[0m"
 else
-  echo -e "\e[93mplymouth is not installed.\e[0m";
+	echo -e "\e[91mSplashscreen: Couldn't change theme to MagicMirror!\e[0m"
+fi
+else
+	echo -e "\e[91mSplashscreen: Copying theme failed!\e[0m"
+fi
+else
+	echo -e "\e[91mSplashscreen: Themes folder doesn't exist!\e[0m"
+fi
+else
+	echo -e "\e[93mplymouth is not installed.\e[0m";
 fi
 # Use pm2 control like a service MagicMirror
 read -p "Do you want use pm2 for auto starting of your MagicMirror 2 arm64 version (y/n)?" choice
 if [[ $choice =~ ^[Yy]$ ]]; then
-  sudo npm install -g pm2
-  sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u rock64 --hp /home/rock64"
-  pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
-  pm2 save
+	sudo npm install -g pm2
+	name=$(whoami)
+	sudo su -c "env PATH=$PATH:/usr/bin pm2 startup linux -u "$name" --hp /home/"$name
+	pm2 start ~/MagicMirror/installers/pm2_MagicMirror.json
+	pm2 save
 fi
 echo " "
 echo -e "\e[92mWe're ready! Run \e[1m\e[97mDISPLAY=:0 npm start\e[0m\e[92m from the ~/MagicMirror directory to start.\e[0m"
