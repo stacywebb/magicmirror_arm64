@@ -17,12 +17,14 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 function createWindow() {
-	var electronOptionsDefaults = {
+	var arch64Options = {
 		width: 800,
 		height: 600,
 		x: 0,
 		y: 0,
 		darkTheme: true,
+		fullscreen: true,
+		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: false,
 			zoomFactor: config.zoom
@@ -32,17 +34,18 @@ function createWindow() {
 
 	// DEPRECATED: "kioskmode" backwards compatibility, to be removed
 	// settings these options directly instead provides cleaner interface
-	if (config.kioskmode) {
-		electronOptionsDefaults.kiosk = true;
-	} else {
-		electronOptionsDefaults.fullscreen = true;
-		electronOptionsDefaults.autoHideMenuBar = true;
-	}
+	//if (config.kioskmode) {
+	//	electronOptionsDefaults.kiosk = true;
+	//} else {
+	//	electronOptionsDefaults.fullscreen = true;
+	//	electronOptionsDefaults.autoHideMenuBar = true;
+	//}
 
-	var electronOptions = Object.assign({}, electronOptionsDefaults, config.electronOptions);
+	//var electronOptions = Object.assign({}, electronOptionsDefaults, config.electronOptions);
 
 	// Create the browser window.
-	mainWindow = new BrowserWindow(electronOptions);
+	mainWindow = new BrowserWindow(arch64Options);
+	mainWindow.maximize();
 
 	// and load the index.html of the app.
 	// If config.address is not defined or is an empty string (listening on all interfaces), connect to localhost
@@ -59,20 +62,20 @@ function createWindow() {
 		mainWindow = null;
 	});
 
-	if (config.kioskmode) {
-		mainWindow.on("blur", function() {
-			mainWindow.focus();
-		});
+	//if (config.kioskmode) {
+	//	mainWindow.on("blur", function() {
+	//		mainWindow.focus();
+	//	});
 
-		mainWindow.on("leave-full-screen", function() {
-			mainWindow.setFullScreen(true);
-		});
+	//	mainWindow.on("leave-full-screen", function() {
+	//		mainWindow.setFullScreen(true);
+	//	});
 
-		mainWindow.on("resize", function() {
-			setTimeout(function() {
-				mainWindow.reload();
-			}, 1000);
-		});
+	//	mainWindow.on("resize", function() {
+	//		setTimeout(function() {
+	//			mainWindow.reload();
+	//		}, 1000);
+	//	});
 	}
 }
 
