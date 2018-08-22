@@ -34,7 +34,7 @@ echo ''
 echo -e "\e[0m"
 
 # Define the tested version of Node.js.
-NODE_TESTED="v5.1.0"
+NODE_TESTED="v8.0.0"
 
 # Determine which arch that device is running.
 ARM=$(uname -m)
@@ -92,7 +92,7 @@ if $NODE_INSTALL; then
 	# Fetch the latest version of Node.js from the selected branch
 
 	# The NODE_STABLE_BRANCH variable will need to be manually adjusted when a new branch is released. (e.g. 8.x)
-	NODE_STABLE_BRANCH="8.x"
+	NODE_STABLE_BRANCH="10.x"
 	curl -sL https://deb.nodesource.com/setup_$NODE_STABLE_BRANCH | sudo -E bash -
 	sudo apt-get install -y nodejs
 	echo -e "\e[92mNode.js installation Done!\e[0m"
