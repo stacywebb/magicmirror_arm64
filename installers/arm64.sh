@@ -37,14 +37,14 @@ echo -e "\e[0m"
 NODE_TESTED="v8.0.0"
 
 # Determine which arch that device is running.
-ARM=$(uname -m)
+#ARM=$(uname -m)
 
 # Check the if device is arm64.
-if [ "$ARM" != "aarch64" ]; then
-	echo -e "\e[91mSorry, the current device is not supported."
-	echo -e "\e[91mThis installer is only for platforms that use the arm64 architecture."
-	exit;
-fi
+#if [ "$ARM" != "aarch64" ]; then
+#	echo -e "\e[91mSorry, the current device is not supported."
+#	echo -e "\e[91mThis installer is only for platforms that use the arm64 architecture."
+#	exit;
+#fi
 
 # Define helper methods.
 function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
